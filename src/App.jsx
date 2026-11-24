@@ -1,6 +1,8 @@
 import { forwardRef, useEffect, useRef } from "react"
 
 function App() {
+  console.log("Reconciliation App")
+
   useEffect(() => {
     console.log("App use effect")
   }, [])
@@ -13,6 +15,8 @@ function App() {
 }
 
 const Child1 = () => {
+  console.log("Reconciliation Child 1")
+  
   const ref = useRef();
 
   useEffect(() => {
@@ -28,6 +32,8 @@ const Child1 = () => {
 }
 
 const Child2 = forwardRef((_, ref) => {
+  console.log("Reconciliation Child 2")
+
   useEffect(() => {
     ref.current && console.log("Child 2 ref")
   })
